@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 
 import axios from 'axios';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import Header from './components/Accessorizes/Header';
 import Users from './components/Users/Users';
 import Posts from './components/Posts/Posts';
 import Map from './components/Map/Map';
+import Loading from './components/Accessorizes/LoadingAnimation/Loading';
 
-import apiUrls from './assets/apiUrl.json';
+import apiUrls from './services/apiUrl.json';
 
 const { usersUrl, postsUrl } = apiUrls;
 
@@ -17,11 +18,20 @@ function App() {
   const [postsList, setPostsList] = useState([]);
   const [currentUSer, setCurrentUser] = useState({});
 
-  const fetchData = (url, setFunction) => {
-    axios
-      .get(url)
-      .then(({ data }) => setFunction(data))
-      .catch((err) => err);
+  const [isLoading, setIsLoading] = useState(false);
+  const [fetchErr, setFetchErr] = useState(false);
+
+  const fetchData = async (url, setFunction) => {
+    try {
+      setIsLoading(true);
+      const { data } = await axios.get(url);
+      setFunction(data);
+    } catch (err) {
+      setFetchErr(true);
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -63,20 +73,26 @@ function App() {
     updatedPostList[postIndex].title = title;
   };
 
-  return (
+  return fetchErr ? (
+    <h1>error fetching data</h1>
+  ) : isLoading ? (
+    <Loading />
+  ) : (
     <Router>
       <Header text={'RANDOM USERS'} />
       <Route
-        path="/"
+        path="/home"
         exact
         render={() => (
           <>
             <Users
+              currentUSer={currentUSer.id}
               users={usersList}
               removeAllUserData={removeAllUserData}
               setCurrentUser={setCurrentUser}
             />
             <Posts
+              userName={currentUSer.name}
               posts={filterCurrentUserPosts()}
               removePost={removePost}
               editPost={editPost}
@@ -85,6 +101,7 @@ function App() {
         )}
       />
       <Route path="/map" exact render={() => <Map userData={currentUSer} />} />
+      <Redirect path="/" to="/home" />
     </Router>
   );
 }

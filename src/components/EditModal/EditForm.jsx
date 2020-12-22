@@ -5,6 +5,8 @@ export default function EditForm({ postData, editPost, toggleEdit }) {
   const [titleInput, setTitleInput] = useState(postData.title);
   const [bodyInput, setBodyInput] = useState(postData.body);
 
+  const [isTitleFocused, setIsTitleFocused] = useState(true);
+
   const focusTitleInput = useRef();
   const focusBodyInput = useRef();
 
@@ -13,16 +15,15 @@ export default function EditForm({ postData, editPost, toggleEdit }) {
   }, []);
 
   const toggleFocus = () => {
-    focusTitleInput.current
+    setIsTitleFocused(!isTitleFocused);
+    isTitleFocused
       ? focusBodyInput.current.focus()
       : focusTitleInput.current.focus();
-    console.log(document.activeElement.name);
-    console.log('title', focusTitleInput.focused);
-    console.log('body', focusBodyInput.current);
   };
 
-  const handleEnterPress = ({ key }) => {
-    key === 'Enter' && toggleFocus();
+  const handleEnterPress = (e) => {
+    e.preventDefault();
+    e.key === 'Enter' && toggleFocus();
   };
 
   const onTitleChange = ({ target }) => {
@@ -75,6 +76,7 @@ export default function EditForm({ postData, editPost, toggleEdit }) {
       borderRadius: '10px',
       border: 'none',
       padding: '5px',
+      cursor: 'pointer',
     },
   };
 
@@ -93,10 +95,11 @@ export default function EditForm({ postData, editPost, toggleEdit }) {
           onChange={onTitleChange}
           onKeyPress={handleEnterPress}
         />
-        <input
+        <textarea
           style={{
             ...styles.input,
             height: '150px',
+            resize: 'none',
           }}
           name="body"
           ref={focusBodyInput}

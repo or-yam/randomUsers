@@ -9,6 +9,7 @@ export default function UserCard({
   userData,
   removeAllUserData,
   setCurrentUser,
+  currentUSer,
 }) {
   const { id, name, email, address, company } = userData;
   const parentheses = name
@@ -23,7 +24,8 @@ export default function UserCard({
     ...cardStyles,
     width: '200px',
     height: '200px',
-    backgroundColor: '#FACC01',
+    maxWidth: '200px',
+    backgroundColor: currentUSer === userData.id ? 'yellow' : '#FACC01',
   };
 
   return (

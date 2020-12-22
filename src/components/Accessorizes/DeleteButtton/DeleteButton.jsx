@@ -8,7 +8,7 @@ export default function DeleteButton({ deleteFunction }) {
       onClick={deleteFunction}
       style={{
         position: 'absolute',
-        right: '10px',
+        right: '15px',
         borderRadius: '5px',
         border: 'none',
         cursor: 'pointer',

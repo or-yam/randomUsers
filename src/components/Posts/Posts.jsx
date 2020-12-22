@@ -4,10 +4,10 @@ import Header from '../Accessorizes/Header';
 
 import containerStyles from '../../Styles/containerStyles.js';
 
-export default function Posts({ posts, removePost, editPost }) {
+export default function Posts({ posts, removePost, editPost, userName }) {
   return posts.length ? (
     <>
-      <Header text={'Posts'} />
+      <Header text={`Posts of ${userName}`} />
       <div style={containerStyles}>
         {posts.map((post) => (
           <PostCard

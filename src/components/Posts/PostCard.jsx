@@ -17,6 +17,7 @@ export default function PostCard({ postData, removePost, editPost }) {
     ...cardStyles,
     backgroundColor: '#FFE7B6',
     width: '350px',
+    maxWidth: '350px',
   };
 
   return (
