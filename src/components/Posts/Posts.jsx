@@ -1,8 +1,8 @@
 import React from 'react';
 import PostCard from './PostCard';
-import Header from '../Accessorizes/Header';
+import Header from '../shared/Header';
 
-import containerStyles from '../../Styles/containerStyles.js';
+import containerStyles from '../../styles/containerStyles.js';
 
 export default function Posts({ posts, removePost, editPost, userName }) {
   return posts.length ? (

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import DeleteButton from '../Accessorizes/DeleteButtton/DeleteButton';
+import DeleteButton from '../shared/DeleteButton/DeleteButton';
 
-import cardStyles from '../../Styles/cardStyles';
+import cardStyles from '../../styles/cardStyles';
 
 export default function UserCard({
   userData,

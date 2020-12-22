@@ -13,8 +13,13 @@ export default function Map({ userData }) {
     zoom: 5,
   };
 
+  const styles = {
+    height: '100vh',
+    width: '100%',
+  };
+
   return (
-    <div style={{ height: '100vh', width: '100%' }}>
+    <div style={styles}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyAsAf8ZKSFF8-3xgRO1GOdhAsEEVxdc9a0' }}
         defaultCenter={defaultProps.center}

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import EditForm from '../EditModal/EditForm';
-import DeleteButton from '../Accessorizes/DeleteButtton/DeleteButton';
+import DeleteButton from '../shared/DeleteButton/DeleteButton';
 
-import cardStyles from '../../Styles/cardStyles';
+import cardStyles from '../../styles/cardStyles';
 
 export default function PostCard({ postData, removePost, editPost }) {
   const { id, title, body } = postData;

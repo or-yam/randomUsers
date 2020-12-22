@@ -22,7 +22,6 @@ export default function EditForm({ postData, editPost, toggleEdit }) {
   };
 
   const handleEnterPress = (e) => {
-    e.preventDefault();
     e.key === 'Enter' && toggleFocus();
   };
 

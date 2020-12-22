@@ -1,7 +1,7 @@
 import React from 'react';
 import UserCard from './UserCard';
 
-import containerStyles from '../../Styles/containerStyles';
+import containerStyles from '../../styles/containerStyles';
 
 export default function Users({
   users,

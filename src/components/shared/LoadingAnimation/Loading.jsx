@@ -1,7 +1,7 @@
 import React from 'react';
 import './Loading.css';
 export default function Loading() {
-  // const styles = {};
+
 
   return (
     <div className="loader-container">

@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-import Header from './components/Accessorizes/Header';
-import Users from './components/Users/Users';
-import Posts from './components/Posts/Posts';
-import Map from './components/Map/Map';
-import Loading from './components/Accessorizes/LoadingAnimation/Loading';
+import Header from './components/shared/Header';
+import Users from './components/users/Users';
+import Posts from './components/posts/Posts';
+import Map from './components/map/Map';
+import Loading from './components/shared/LoadingAnimation/Loading';
 
 import apiUrls from './services/apiUrl.json';
 
