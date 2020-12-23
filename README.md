@@ -1,6 +1,6 @@
 # 🐝
 
->To see the app run :
+>To see the app, run :
 
 ```shell
 yarn add

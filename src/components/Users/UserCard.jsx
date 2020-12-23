@@ -18,7 +18,7 @@ export default function UserCard({
     .join('');
 
   const onRemove = () => removeAllUserData(id);
-  const onSetUser = () => setCurrentUser(userData);
+  const onCardClick = () => setCurrentUser(userData);
 
   const userCardStyles = {
     ...cardStyles,
@@ -29,7 +29,7 @@ export default function UserCard({
   };
 
   return (
-    <div className="user-card" onClick={onSetUser} style={userCardStyles}>
+    <div className="user-card" onClick={onCardClick} style={userCardStyles}>
       <DeleteButton deleteFunction={onRemove} />
       <h3>
         {name} - {parentheses}

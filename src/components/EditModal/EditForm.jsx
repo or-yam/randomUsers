@@ -4,9 +4,9 @@ import './EditForm.css';
 export default function EditForm({ postData, editPost, toggleEdit }) {
   const [titleInput, setTitleInput] = useState(postData.title);
   const [bodyInput, setBodyInput] = useState(postData.body);
-
   const [isTitleFocused, setIsTitleFocused] = useState(true);
 
+  //toggle focus between inputs
   const focusTitleInput = useRef();
   const focusBodyInput = useRef();
 
@@ -21,9 +21,10 @@ export default function EditForm({ postData, editPost, toggleEdit }) {
       : focusTitleInput.current.focus();
   };
 
-  const handleEnterPress = (e) => {
-    e.key === 'Enter' && toggleFocus();
+  const handleEnterPress = ({ key }) => {
+    key === 'Enter' && toggleFocus();
   };
+  //---
 
   const onTitleChange = ({ target }) => {
     setTitleInput(target.value);

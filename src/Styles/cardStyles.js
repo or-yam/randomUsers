@@ -1,12 +1,12 @@
 const cardStyles = {
-    border: '3px solid black',
-    borderRadius: '10px',
-    margin: '15px',
-    padding: '5px',
-    textAlign: 'center',
-    position: 'relative',
-    cursor: 'pointer',
-}
+  border: '3px solid black',
+  borderRadius: '10px',
+  margin: '15px',
+  padding: '5px',
+  textAlign: 'center',
+  position: 'relative',
+  cursor: 'pointer',
+  wordWrap: 'break-word',
+};
 
-export default cardStyles
-
+export default cardStyles;
