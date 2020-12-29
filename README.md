@@ -3,6 +3,6 @@
 >To see the app, run :
 
 ```shell
-yarn add
+yarn install
 yarn start
 ```
